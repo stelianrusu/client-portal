@@ -11,7 +11,6 @@ const DataTable = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    console.log(getUserInfo());
     fetch("https://csamapi-continous.azurewebsites.net/portfolio", {
       method: "GET",
     })
