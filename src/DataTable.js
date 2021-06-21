@@ -11,12 +11,20 @@ const DataTable = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
+    console.log(getUserInfo());
     fetch("https://csamapi-continous.azurewebsites.net/portfolio", {
       method: "GET",
     })
       .then((data) => data.json())
       .then((data) => setTableData(data));
   }, []);
+
+  async function getUserInfo() {
+    const response = await fetch("/.auth/me");
+    const payload = await response.json();
+    const { clientPrincipal } = payload;
+    return clientPrincipal;
+  }
 
   return (
     <div style={{ height: 700, width: "100%" }}>
