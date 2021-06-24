@@ -1,15 +1,19 @@
 {
-    "routes": [
-        {
-            "route": "*",
-            "allowedRoles": ["authenticated"]
-        },
-        {
-        "route": "/login",
-        "rewrite": "/.auth/login/aad"
-        }
-    ],
-    "navigationFallback": {
-        "rewrite": "/index.html"
+  "routes": [
+    {
+      "route": "*",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/login",
+      "rewrite": "/.auth/login/aad"
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": ["registeredusers"]
     }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
 }
